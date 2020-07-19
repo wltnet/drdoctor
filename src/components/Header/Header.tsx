@@ -1,5 +1,5 @@
 import * as React from "react";
-import logo from "../../images/drdoctor-company-logo.svg";
+import logo from "../../images/drdoctor-company-logo.jpg";
 import { Link } from "react-router-dom";
 import { Wrapper, Logo } from "./styled";
 
