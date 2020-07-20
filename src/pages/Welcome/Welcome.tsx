@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Section } from "./styled";
 
-const Welcome = () => {
+const Welcome = (): React.ReactElement => {
   const auth = localStorage.getItem("token");
 
   if (!auth) {

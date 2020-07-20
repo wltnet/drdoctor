@@ -12,7 +12,7 @@ const data: DataProps = {
   email: "ab*****@hotmail.com",
 };
 
-const OneTimeCode = () => {
+const OneTimeCode = (): React.ReactElement => {
   let history = useHistory();
   const [submitCode, setSubmitCode] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string>("");

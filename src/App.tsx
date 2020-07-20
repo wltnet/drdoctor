@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import OneTimeCode from "./pages/OneTimeCode";
 import Welcome from "./pages/Welcome";
 
-function App() {
+function App(): React.ReactElement {
   return (
     <Router>
       <GlobalStyle />
