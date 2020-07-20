@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
 import { Form, InputWrapper, Input, Label, Error } from "./styled";
-import { todayDate, isEmpty, isValidDate, isValidPostcode } from ".";
+import { isEmpty, isValidDate, isValidPostcode } from ".";
 
 type DataProps = {
   [key: string]: string;
@@ -103,7 +103,6 @@ const Login = (): React.ReactElement => {
             id="dateOfBirth"
             type="text"
             name="dateOfBirth"
-            max={todayDate}
             maxLength={10}
             value={values.dateOfBirth}
             onChange={onChange}

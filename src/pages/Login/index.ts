@@ -17,8 +17,6 @@ const validDate = (date: string) => {
   else return true;
 };
 
-export const todayDate = new Date().toISOString().split("T")[0];
-
 export const isEmpty = (value: string) => value === "";
 
 export const isValidPostcode = (postcode: string) => {
