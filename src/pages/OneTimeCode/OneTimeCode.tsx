@@ -15,7 +15,6 @@ const data: DataProps = {
 const OneTimeCode = (): React.ReactElement => {
   let history = useHistory();
   const [submitCode, setSubmitCode] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<string>("");
   const auth = localStorage.getItem("onetimecode");
 
   const initialState: DataProps = {
@@ -24,11 +23,15 @@ const OneTimeCode = (): React.ReactElement => {
   };
 
   const [values, setValues] = React.useState<DataProps>(initialState);
+  const [errors, setErrors] = React.useState<DataProps>(initialState);
 
   const onClick = (ev: React.FormEvent) => {
     ev.preventDefault();
     if (values.contact !== "") {
+      setErrors({ ...errors, contact: "" });
       setSubmitCode(true);
+    } else {
+      setErrors({ ...errors, contact: "Please select contact method" });
     }
   };
 
@@ -44,7 +47,7 @@ const OneTimeCode = (): React.ReactElement => {
       history.push("/welcome");
     }
 
-    setError("Invalid one-time code");
+    setErrors({ ...errors, code: "Invalid one-time code" });
     return false;
   };
 
@@ -73,6 +76,7 @@ const OneTimeCode = (): React.ReactElement => {
             </InputWrapper>
           ))}
         </Fieldset>
+        {errors.contact && <Error>{errors.contact}</Error>}
         <button type="submit" onClick={onClick}>
           {submitCode ? "Resend code" : "Send code"}
         </button>
@@ -88,7 +92,7 @@ const OneTimeCode = (): React.ReactElement => {
                 placeholder="Please enter the one-time code here"
                 required
               />
-              {error && <Error>{error}</Error>}
+              {errors.code && <Error>{errors.code}</Error>}
             </label>
             <button type="submit" onClick={onSubmit}>
               Submit code
